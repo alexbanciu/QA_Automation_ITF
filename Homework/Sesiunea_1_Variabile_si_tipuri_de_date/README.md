@@ -29,28 +29,4 @@ Afișează: 'Aria dreptunghiului este x'.
 ● Afișează de câte ori apare cuvântul 'the';\
 ● Printează rezultatul.
 10. Același string.\
-● Folosiți un assert ca să verificați dacă acest string conține doar numere.\
-Exerciții Opționale - grad de dificultate: Mediu spre greu (s-ar putea să ai
-nevoie de Google).
-1. Exercițiu:
-- citește de la tastatură un string de dimensiune impară;
-- afișează caracterul din mijloc.
-2. Folosind assert, verifică dacă un string este palindrom.
-3. Folosind o singură linie de cod :
-- citește un string de la tastatură (ex: 'alabala portocala');
-- salvează fiecare cuvânt într-o variabilă;
-- printează ambele variabile pentru verificare.
-4. Exercițiu:
-- citește un string de la tastatură (ex: alabala portocala);
-- salvează primul caracter într-o variabilă - indiferent care este el, încearcă
-cu 2 stringuri diferite;
-- capitalizează acest caracter peste tot, mai puțin pentru primul și ultimul
-caracter => alAbAlA portocAla.
-5.Exercițiu:
-- citește un user de la tastatură;
-- citește o parolă;
-- afișează: 'Parola pt user x este ***** și are x caractere';
-- ***** se va calcula dinamic, indiferent de dimensiunea parolei, trebuie să
-afișeze corect.
-eg: parola abc => ***
-parola abcd => ****
+● Folosiți un assert ca să verificați dacă acest string conține doar numere.
