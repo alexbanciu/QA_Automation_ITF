@@ -1,4 +1,4 @@
-                   Tema – Curs Primii pași în programare
+                  Tema – Curs Primii pași în programare
 
 Tinand cont de informatiile prezentate in cursul Primii pasi in programare
 si in urma cunostintelor dobandite rezolva exercitiile de mai jos atat in
