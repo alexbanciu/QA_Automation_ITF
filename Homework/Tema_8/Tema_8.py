@@ -1,3 +1,8 @@
+import time
+
+from selenium import webdriver
+from selenium.webdriver.common.by import By
+
 ''' Alege-ți unuul sau mai multe din sugestiile de site-uri de mai jos
 - https://www.phptravels.net/
 - http://automationpractice.com/index.php
@@ -17,8 +22,20 @@ observație:
 - Probabil nu vei găsi un singur website care să cuprindă toate variantele
 de mai sus, astfel că îți recomandăm să folosești mai multe site-uri '''
 
-import time
-from selenium import webdriver
-from selenium.webdriver.common.by import By
+
 
 chrome = webdriver.Chrome()
+
+#By.ID
+chrome.get('https://phptravels.net/')
+chrome.maximize_window()
+chrome.find_element(By.ID, 'autocomplete').send_keys('Sibiu')
+time.sleep(2)
+chrome.find_element(By.ID, 'autocomplete2').send_keys('Barcelona')
+time.sleep(2)
+chrome.find_element(By.ID, 'departure').click()
+time.sleep(2)
+
+#By.LINK_TEXT
+chrome.find_element(By.LINK_TEXT, 'services').click()
+time.sleep(5)
