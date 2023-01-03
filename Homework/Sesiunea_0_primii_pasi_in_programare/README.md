@@ -1,8 +1,6 @@
                   Tema – Curs Primii pași în programare
 
-Tinand cont de informatiile prezentate in cursul Primii pasi in programare
-si in urma cunostintelor dobandite rezolva exercitiile de mai jos atat in
-limbajul de programare java cat si in python, conform cerintelor.
+
 1. Noteaza in limbajul de programare java, in cadrul unui comentariu, ce
 este o variabila boolean – explica cu cuvintele tale.
 2. Noteaza in limbajul de programare Python, in cadrul unui comentariu,

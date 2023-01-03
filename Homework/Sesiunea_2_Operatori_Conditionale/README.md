@@ -1,6 +1,6 @@
        Tema 2 - Operatori, condiționale
 
-Exerciții obligatorii - grad de dificultate: Ușor spre Mediu .\
+
 Pentru toate exercițiile se va folosi noțiunea de if în rezolvare.\
 Indirect vei exersa și operatorii în cadrul condițiilor ramurilor din if.\
 X poate fi inițializat direct în cod sau citit de la tastatură, după preferințe.\
@@ -25,4 +25,4 @@ Peste 8 => B\
 Peste 7 => C\
 Peste 6 => D\
 Peste 4 => E\
-4 sau sub => F\
+4 sau sub => F

@@ -1,12 +1,6 @@
         Tema 1 _ Setup, Variabile, Tipuri de date
-Exerciții Recomandate - grad de dificultate: Ușor .
-1. Revizualizează întâlnirea 1 și ia notițe în caz că ți-a scăpat ceva.
-2. Vizualizează din videoul ‘Primii pași în Programare’:
-- Variabile și Tipuri;
-- Operatori și Flow Control.
-Astfel, la întâlnirea LIVE deja va fi a 2-a oară când vei auzi conceptele și sigur ți
-se vor întipări mai bine în minte.
-Exerciții obligatorii - grad de dificultate: Ușor spre Mediu:
+
+
 1. În cadrul unui comentariu, explică cu cuvintele tale ce este o variabilă.
 2. Declară și initializează câte o variabilă din fiecare din următoarele tipuri de
 variabilă :
