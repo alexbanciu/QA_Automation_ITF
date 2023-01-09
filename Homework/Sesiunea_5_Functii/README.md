@@ -1,4 +1,4 @@
-1.Funcție care să calculeze și să returneze suma a două numere
+1. Funcție care să calculeze și să returneze suma a două numere
 2. Funcție care sa returneze TRUE dacă un număr este par, FALSE pt impar
 3. Funcție care returnează numărul total de caractere din numele tău complet.
 (nume, prenume, nume_mijlociu)
