@@ -25,17 +25,17 @@ de mai sus, astfel că îți recomandăm să folosești mai multe site-uri '''
 
 
 chrome = webdriver.Chrome()
-
-#By.ID
-chrome.get('https://phptravels.net/')
+time.sleep(3)
 chrome.maximize_window()
-chrome.find_element(By.ID, 'autocomplete').send_keys('Sibiu')
+chrome.get("https://the-internet.herokuapp.com/")
+chrome.find_element(By.LINK_TEXT, "Frames").click()
+time.sleep(3)
+chrome.back()
 time.sleep(2)
-chrome.find_element(By.ID, 'autocomplete2').send_keys('Barcelona')
+chrome.find_element(By.LINK_TEXT, "Forgot Password").click()
+time.sleep(3)
+chrome.back()
 time.sleep(2)
-chrome.find_element(By.ID, 'departure').click()
-time.sleep(2)
-
-#By.LINK_TEXT
-chrome.find_element(By.LINK_TEXT, 'services').click()
-time.sleep(5)
+chrome.find_element(By.LINK_TEXT, "Geolocation").click()
+time.sleep(3)
+chrome.quit()
