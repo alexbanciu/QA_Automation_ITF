@@ -1,18 +1,18 @@
 import time
 from selenium import webdriver
 from selenium.webdriver.common.by import By
-chrome = webdriver.Chrome()
-chrome.get("https://formy-project.herokuapp.com/form")
+chromepage = webdriver.Chrome()
+chromepage.get("https://www.phptravels.net/")
+#css id
+chromepage.find_element(By.CSS_SELECTOR, "#Tab").click()
+time.sleep(2)
+# css atribut = valoare
+chromepage.find_element(By.CSS_SELECTOR, "input[name='checkout']")
+time.sleep(2)
 
-chrome.find_element(By.CSS_SELECTOR,"#first-name").send_keys("Anton")
-# am facut cautare dupa id
-chrome.find_element(By.CSS_SELECTOR,"#last-name").send_keys("Anton")
+#css clasa
+chromepage.find_element(By.CSS_SELECTOR, ".hero-wrappe")
 time.sleep(2)
-chrome.find_element(By.CSS_SELECTOR,"#last-name").clear()
+chromepage.find_element(By.CSS_SELECTOR, "#fadein > section.hero-wrappe")
 time.sleep(2)
-# am facut cautare dupa atribut = valoare
-chrome.find_element(By.CSS_SELECTOR,"input[placeholder='Enter last name']").send_keys("Pann")
-time.sleep(2)
-# am facut cautare dupa clasa
-chrome.find_elements(By.CSS_SELECTOR,".form-control")[2].send_keys("Tester")
-text_label_last_name = chrome.find_element(By.CSS_SELECTOR,"strong > label[for='last-name']").text
+chromepage.quit()
