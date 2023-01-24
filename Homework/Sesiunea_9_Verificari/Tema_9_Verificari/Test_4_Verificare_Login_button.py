@@ -29,7 +29,7 @@ class Login(unittest.TestCase):
         self.chrome.quit()
 
 
-     # @unittest.skip
+
      # Test 4 - Verificare Login button
     def test_login_displayed(self):
         button = self.chrome.find_element(*self.LOGIN_BUTTON)

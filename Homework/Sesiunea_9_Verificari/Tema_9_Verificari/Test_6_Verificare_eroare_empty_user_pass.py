@@ -30,7 +30,7 @@ class Login(unittest.TestCase):
         self.chrome.quit()
 
 
-    # @ unittest.skip
+
     # Test 6 - Verificare eroare user/pass goale
     def test_mesaj_alerta(self):
         self.chrome.find_element(*self.LOGIN_BUTTON).click()

@@ -29,7 +29,7 @@ class Login(unittest.TestCase):
     def tearDown(self):
         self.chrome.quit()
 
-    # @ unittest.skip
+
     # Test 9 - Verificare lista label
     def test_lista_label(self):
         global is_username_text_correct, is_password_text_correct

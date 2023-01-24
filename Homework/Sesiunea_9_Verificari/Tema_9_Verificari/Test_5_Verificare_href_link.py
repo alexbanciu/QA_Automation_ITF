@@ -28,7 +28,7 @@ class Login(unittest.TestCase):
     def tearDown(self):
         self.chrome.quit()
 
-     # @unittest.skip
+
      # Test 5 - Verificare href link
     def test_href_link(self):
         actual_link = self.chrome.find_element(*self.HREF_LINK).get_attribute('href')

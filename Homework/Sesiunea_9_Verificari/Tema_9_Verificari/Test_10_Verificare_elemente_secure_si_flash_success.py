@@ -30,7 +30,7 @@ class Login(unittest.TestCase):
     def tearDown(self):
         self.chrome.quit()
 
-    # @ unittest.skip
+
     # Test 10 - Verificare elemente secure si flash succes
     def test_verif_secure(self):
         self.chrome.find_element(*self.USER_NAME).send_keys('tomsmith')

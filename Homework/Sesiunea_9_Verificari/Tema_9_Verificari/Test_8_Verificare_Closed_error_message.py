@@ -31,7 +31,7 @@ class Login(unittest.TestCase):
     def tearDown(self):
         self.chrome.quit()
 
-    # @ unittest.skip
+
     # Test 8 - Verificare inchidere mesaj eroare
     def test_inchidere_mesaj_eroare(self):
         self.chrome.find_element(*self.LOGIN_BUTTON).click()

@@ -29,7 +29,7 @@ class Login(unittest.TestCase):
         self.chrome.quit()
 
 
-    # @unittest.skip
+
     # Test 3 - Verificare element
     def test_element(self):
         actual = self.chrome.find_element(*self.H2_ELEMENT).text

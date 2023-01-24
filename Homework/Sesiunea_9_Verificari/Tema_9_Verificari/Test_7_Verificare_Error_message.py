@@ -31,7 +31,7 @@ class Login(unittest.TestCase):
     def tearDown(self):
         self.chrome.quit()
 
-     # @ unittest.skip
+
     # Test 7 - Verificare mesaj eroare
     def test_mesaj_eroare(self):
         self.chrome.find_element(*self.USER_NAME).send_keys('tom')

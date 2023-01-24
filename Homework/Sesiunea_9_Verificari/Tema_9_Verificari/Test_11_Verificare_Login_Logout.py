@@ -30,7 +30,7 @@ class Login(unittest.TestCase):
     def tearDown(self):
         self.chrome.quit()
 
-    # @ unittest.skip
+
     # Test 11 - Verificare login - logout
     def test_verif_login_logout(self):
         self.chrome.find_element(*self.USER_NAME).send_keys('tomsmith')

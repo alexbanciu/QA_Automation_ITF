@@ -27,7 +27,7 @@ class Login(unittest.TestCase):
     def tearDown(self):
         self.chrome.quit()
 
-    # @unittest.skip
+
     # Test 1 - Verificare URL
     def test_url(self):
         actual = self.chrome.current_url

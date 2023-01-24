@@ -28,7 +28,7 @@ class Login(unittest.TestCase):
         self.chrome.quit()
 
 
-    # @unittest.skip
+
     # Test 2 - Verificare page title
     def test_page_title(self):
         actual = self.chrome.title
