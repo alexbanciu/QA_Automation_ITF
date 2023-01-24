@@ -14,18 +14,9 @@ import random
 class Login(unittest.TestCase):
     FORM_AUTHENTICATION_LINK=(By.XPATH,'//a[text()="Form Authentication"]')
     LOGIN_BUTTON=(By.XPATH,'//*[@id="login"]/button/i')
-    H2_ELEMENT=(By.XPATH,'//h2')
-    HREF_LINK=(By.XPATH,'//a[@href="http://elementalselenium.com/"]')
     USER_NAME=(By.ID,'username')
     PASSWORD=(By.ID,'password')
-    # ERROR_MESSAGE=(By.XPATH,'//div[@id="flash"]')
-    # sau
-    ERROR_MESSAGE = (By.XPATH, "//div[normalize-space(contains(text(),'Your username is invalid'))]")
-    ERROR_CLOSED=(By.XPATH,'//a[@class="close"]')
-    LABEL_LIST=(By.XPATH,'//label')
-    SUCCESS_MESSAGE=(By.XPATH,'//div[@class="flash success"]')
     LOGOUT_BUTTON=(By.XPATH,'//a[@href="/logout"]')
-    ELEM_H4=(By.XPATH,'//h4[@class="subheader"]')
 
     def setUp(self):
         s = Service(ChromeDriverManager().install())

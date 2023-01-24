@@ -14,18 +14,10 @@ import random
 class Login(unittest.TestCase):
     FORM_AUTHENTICATION_LINK=(By.XPATH,'//a[text()="Form Authentication"]')
     LOGIN_BUTTON=(By.XPATH,'//*[@id="login"]/button/i')
-    H2_ELEMENT=(By.XPATH,'//h2')
-    HREF_LINK=(By.XPATH,'//a[@href="http://elementalselenium.com/"]')
     USER_NAME=(By.ID,'username')
     PASSWORD=(By.ID,'password')
-    # ERROR_MESSAGE=(By.XPATH,'//div[@id="flash"]')
-    # sau
-    ERROR_MESSAGE = (By.XPATH, "//div[normalize-space(contains(text(),'Your username is invalid'))]")
-    ERROR_CLOSED=(By.XPATH,'//a[@class="close"]')
-    LABEL_LIST=(By.XPATH,'//label')
-    SUCCESS_MESSAGE=(By.XPATH,'//div[@class="flash success"]')
-    LOGOUT_BUTTON=(By.XPATH,'//a[@href="/logout"]')
-    ELEM_H4=(By.XPATH,'//h4[@class="subheader"]')
+    ERROR_MESSAGE = (By.XPATH, '//*[@id="flash"]')
+
 
     def setUp(self):
         s = Service(ChromeDriverManager().install())
@@ -33,7 +25,7 @@ class Login(unittest.TestCase):
         self.chrome.maximize_window()
         self.chrome.get('https://the-internet.herokuapp.com/')
         self.chrome.find_element(*self.FORM_AUTHENTICATION_LINK).click()
-        self.chrome.implicitly_wait(7)
+        self.chrome.implicitly_wait(5)
 
 
     def tearDown(self):
@@ -43,7 +35,7 @@ class Login(unittest.TestCase):
     # Test 7 - Verificare mesaj eroare
     def test_mesaj_eroare(self):
         self.chrome.find_element(*self.USER_NAME).send_keys('tom')
-        self.chrome.find_element(*self.PASSWORD).send_keys('SuperSecretPassword!')
+        self.chrome.find_element(*self.PASSWORD).send_keys('smith')
         self.chrome.find_element(*self.LOGIN_BUTTON).click()
         actual = self.chrome.find_element(*self.ERROR_MESSAGE).text
         expected = 'Your username is invalid!'

@@ -14,18 +14,9 @@ import random
 class Login(unittest.TestCase):
     FORM_AUTHENTICATION_LINK=(By.XPATH,'//a[text()="Form Authentication"]')
     LOGIN_BUTTON=(By.XPATH,'//*[@id="login"]/button/i')
-    H2_ELEMENT=(By.XPATH,'//h2')
-    HREF_LINK=(By.XPATH,'//a[@href="http://elementalselenium.com/"]')
     USER_NAME=(By.ID,'username')
     PASSWORD=(By.ID,'password')
-    # ERROR_MESSAGE=(By.XPATH,'//div[@id="flash"]')
-    # sau
-    ERROR_MESSAGE = (By.XPATH, "//div[normalize-space(contains(text(),'Your username is invalid'))]")
-    ERROR_CLOSED=(By.XPATH,'//a[@class="close"]')
-    LABEL_LIST=(By.XPATH,'//label')
-    SUCCESS_MESSAGE=(By.XPATH,'//div[@class="flash success"]')
-    LOGOUT_BUTTON=(By.XPATH,'//a[@href="/logout"]')
-    ELEM_H4=(By.XPATH,'//h4[@class="subheader"]')
+    SUCCESS_MESSAGE=(By.XPATH,'//*[@class="flash success"]')
 
     def setUp(self):
         s = Service(ChromeDriverManager().install())
@@ -39,9 +30,13 @@ class Login(unittest.TestCase):
     def tearDown(self):
         self.chrome.quit()
 
-
-     # @unittest.skip
-     # Test 4 - Verificare Login button
-    def test_login_displayed(self):
-        button = self.chrome.find_element(*self.LOGIN_BUTTON)
-        self.assertTrue(button.is_displayed(), 'Butonul de LOGIN nu este vizibil')
+    # @ unittest.skip
+    # Test 10 - Verificare elemente secure si flash succes
+    def test_verif_secure(self):
+        self.chrome.find_element(*self.USER_NAME).send_keys('tomsmith')
+        self.chrome.find_element(*self.PASSWORD).send_keys('SuperSecretPassword!')
+        self.chrome.find_element(*self.LOGIN_BUTTON).click()
+        url_dupa_logare=self.chrome.current_url
+        self.assertTrue("secure" in url_dupa_logare,'Noul url nu contine secure')
+        WebDriverWait(self.chrome,10).until(EC.presence_of_element_located(self.SUCCESS_MESSAGE))
+        assert self.chrome.find_element(*self.SUCCESS_MESSAGE).is_displayed() == True, 'Not displayed'

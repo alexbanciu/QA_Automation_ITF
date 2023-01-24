@@ -13,19 +13,8 @@ import random
 
 class Login(unittest.TestCase):
     FORM_AUTHENTICATION_LINK=(By.XPATH,'//a[text()="Form Authentication"]')
-    LOGIN_BUTTON=(By.XPATH,'//*[@id="login"]/button/i')
-    H2_ELEMENT=(By.XPATH,'//h2')
     HREF_LINK=(By.XPATH,'//a[@href="http://elementalselenium.com/"]')
-    USER_NAME=(By.ID,'username')
-    PASSWORD=(By.ID,'password')
-    # ERROR_MESSAGE=(By.XPATH,'//div[@id="flash"]')
-    # sau
-    ERROR_MESSAGE = (By.XPATH, "//div[normalize-space(contains(text(),'Your username is invalid'))]")
-    ERROR_CLOSED=(By.XPATH,'//a[@class="close"]')
-    LABEL_LIST=(By.XPATH,'//label')
-    SUCCESS_MESSAGE=(By.XPATH,'//div[@class="flash success"]')
-    LOGOUT_BUTTON=(By.XPATH,'//a[@href="/logout"]')
-    ELEM_H4=(By.XPATH,'//h4[@class="subheader"]')
+
 
     def setUp(self):
         s = Service(ChromeDriverManager().install())
@@ -39,14 +28,9 @@ class Login(unittest.TestCase):
     def tearDown(self):
         self.chrome.quit()
 
-    # @ unittest.skip
-    # Test 8 - Verificare inchidere mesaj eroare
-    def test_inchidere_mesaj_eroare(self):
-        self.chrome.find_element(*self.LOGIN_BUTTON).click()
-        sleep(5)
-        self.chrome.find_element(*self.ERROR_CLOSED).click()
-        sleep(5)
-        try:
-            self.chrome.find_element(*self.ERROR_CLOSED)
-        except NoSuchElementException:
-            print("The text is not visible on the page! It's ok")
+     # @unittest.skip
+     # Test 5 - Verificare href link
+    def test_href_link(self):
+        actual_link = self.chrome.find_element(*self.HREF_LINK).get_attribute('href')
+        assert actual_link == 'http://elementalselenium.com/', 'Link-ul este gresit'
+        print('Link-ul verificat este corect')

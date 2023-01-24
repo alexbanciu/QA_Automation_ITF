@@ -13,19 +13,7 @@ import random
 
 class Login(unittest.TestCase):
     FORM_AUTHENTICATION_LINK=(By.XPATH,'//a[text()="Form Authentication"]')
-    LOGIN_BUTTON=(By.XPATH,'//*[@id="login"]/button/i')
-    H2_ELEMENT=(By.XPATH,'//h2')
-    HREF_LINK=(By.XPATH,'//a[@href="http://elementalselenium.com/"]')
-    USER_NAME=(By.ID,'username')
-    PASSWORD=(By.ID,'password')
-    # ERROR_MESSAGE=(By.XPATH,'//div[@id="flash"]')
-    # sau
-    ERROR_MESSAGE = (By.XPATH, "//div[normalize-space(contains(text(),'Your username is invalid'))]")
-    ERROR_CLOSED=(By.XPATH,'//a[@class="close"]')
-    LABEL_LIST=(By.XPATH,'//label')
-    SUCCESS_MESSAGE=(By.XPATH,'//div[@class="flash success"]')
-    LOGOUT_BUTTON=(By.XPATH,'//a[@href="/logout"]')
-    ELEM_H4=(By.XPATH,'//h4[@class="subheader"]')
+
 
     def setUp(self):
         s = Service(ChromeDriverManager().install())
@@ -33,15 +21,16 @@ class Login(unittest.TestCase):
         self.chrome.maximize_window()
         self.chrome.get('https://the-internet.herokuapp.com/')
         self.chrome.find_element(*self.FORM_AUTHENTICATION_LINK).click()
-        self.chrome.implicitly_wait(7)
+        self.chrome.implicitly_wait(5)
 
 
     def tearDown(self):
         self.chrome.quit()
 
+
     # @unittest.skip
-    # Test 1 - Verificare URL
-    def test_url(self):
-        actual = self.chrome.current_url
-        expected = 'https://the-internet.herokuapp.com/login'
-        self.assertEqual(expected,actual, 'URL-ul nu este corect')
+    # Test 2 - Verificare page title
+    def test_page_title(self):
+        actual = self.chrome.title
+        expected = 'The Internet'
+        self.assertEqual(expected, actual, f' Titlul paginii este {actual}, dar ar fi trebuit sa fie {expected}')

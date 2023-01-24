@@ -13,19 +13,9 @@ import random
 
 class Login(unittest.TestCase):
     FORM_AUTHENTICATION_LINK=(By.XPATH,'//a[text()="Form Authentication"]')
-    LOGIN_BUTTON=(By.XPATH,'//*[@id="login"]/button/i')
-    H2_ELEMENT=(By.XPATH,'//h2')
-    HREF_LINK=(By.XPATH,'//a[@href="http://elementalselenium.com/"]')
     USER_NAME=(By.ID,'username')
     PASSWORD=(By.ID,'password')
-    # ERROR_MESSAGE=(By.XPATH,'//div[@id="flash"]')
-    # sau
-    ERROR_MESSAGE = (By.XPATH, "//div[normalize-space(contains(text(),'Your username is invalid'))]")
-    ERROR_CLOSED=(By.XPATH,'//a[@class="close"]')
     LABEL_LIST=(By.XPATH,'//label')
-    SUCCESS_MESSAGE=(By.XPATH,'//div[@class="flash success"]')
-    LOGOUT_BUTTON=(By.XPATH,'//a[@href="/logout"]')
-    ELEM_H4=(By.XPATH,'//h4[@class="subheader"]')
 
     def setUp(self):
         s = Service(ChromeDriverManager().install())
@@ -42,10 +32,10 @@ class Login(unittest.TestCase):
     # @ unittest.skip
     # Test 9 - Verificare lista label
     def test_lista_label(self):
+        global is_username_text_correct, is_password_text_correct
         elem_lista=self.chrome.find_elements(*self.LABEL_LIST)
         i = 0
-        is_username_text_correct = False
-        is_password_text_correct = False
+
         while i<len(elem_lista):
             if elem_lista[i].text=='Username':
                 is_username_text_correct = True
