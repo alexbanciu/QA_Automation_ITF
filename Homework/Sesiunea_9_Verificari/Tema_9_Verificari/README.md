@@ -13,6 +13,7 @@ Quit browser
 
 ● Test 2
 - Verifică dacă page title e corect
+
 ● Test 3
 - Verifică textul de pe elementul xpath=//h2 e corect
 
