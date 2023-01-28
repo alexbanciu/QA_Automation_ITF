@@ -18,5 +18,5 @@ class TestSuite(unittest.TestCase):
         test_derulat.addTest(unittest.defaultTestLoader.loadTestsFromTestCase(Login))
 
 
-        runner = HTMLTestRunner.HTMLTestRunner(combine_reports=True, report_title= "Suites_Tema_10", report_name="Suites tema 10")
+        runner = HTMLTestRunner.HTMLTestRunner(combine_reports=True, report_title= "Suites Tema 10", report_name="Suites_tema_10")
         runner.run(test_derulat)
