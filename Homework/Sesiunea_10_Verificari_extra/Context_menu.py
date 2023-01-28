@@ -1,4 +1,4 @@
-import  unittest
+import unittest
 import time
 
 from selenium import webdriver
@@ -20,12 +20,12 @@ class Context_Menu(unittest.TestCase):
         self.chrome.quit()
 
     def test_contextmenu(self):
-       action = ActionChains(self.chrome)
-       elem = self.chrome.find_element(*self.BOX)
-       action.context_click(elem).perform()
-       time.sleep(2)
-       alert = self.chrome.switch_to.alert
-       text = alert.text
-       assert text == 'You selected a context menu'
-       alert.accept()
-       time.sleep(3)
+        action = ActionChains(self.chrome)
+        elem = self.chrome.find_element(*self.BOX)
+        action.context_click(elem).perform()
+        time.sleep(2)
+        alert = self.chrome.switch_to.alert
+        text = alert.text
+        assert text == 'You selected a context menu'
+        alert.accept()
+        time.sleep(3)

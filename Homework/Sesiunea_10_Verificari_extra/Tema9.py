@@ -10,22 +10,21 @@ from time import sleep
 import random
 
 
-
 class Login(unittest.TestCase):
-    FORM_AUTHENTICATION_LINK=(By.XPATH,'//a[text()="Form Authentication"]')
-    LOGIN_BUTTON=(By.XPATH,'//*[@id="login"]/button/i')
-    H2_ELEMENT=(By.XPATH,'//h2')
-    HREF_LINK=(By.XPATH,'//a[@href="http://elementalselenium.com/"]')
-    USER_NAME=(By.ID,'username')
-    PASSWORD=(By.ID,'password')
+    FORM_AUTHENTICATION_LINK = (By.XPATH, '//a[text()="Form Authentication"]')
+    LOGIN_BUTTON = (By.XPATH, '//*[@id="login"]/button/i')
+    H2_ELEMENT = (By.XPATH, '//h2')
+    HREF_LINK = (By.XPATH, '//a[@href="http://elementalselenium.com/"]')
+    USER_NAME = (By.ID, 'username')
+    PASSWORD = (By.ID, 'password')
     # ERROR_MESSAGE=(By.XPATH,'//div[@id="flash"]')
     # sau
     ERROR_MESSAGE = (By.XPATH, "//div[normalize-space(contains(text(),'Your username is invalid'))]")
-    ERROR_CLOSED=(By.XPATH,'//a[@class="close"]')
-    LABEL_LIST=(By.XPATH,'//label')
-    SUCCESS_MESSAGE=(By.XPATH,'//div[@class="flash success"]')
-    LOGOUT_BUTTON=(By.XPATH,'//a[@href="/logout"]')
-    ELEM_H4=(By.XPATH,'//h4[@class="subheader"]')
+    ERROR_CLOSED = (By.XPATH, '//a[@class="close"]')
+    LABEL_LIST = (By.XPATH, '//label')
+    SUCCESS_MESSAGE = (By.XPATH, '//div[@class="flash success"]')
+    LOGOUT_BUTTON = (By.XPATH, '//a[@href="/logout"]')
+    ELEM_H4 = (By.XPATH, '//h4[@class="subheader"]')
 
     def setUp(self):
         s = Service(ChromeDriverManager().install())
@@ -35,7 +34,6 @@ class Login(unittest.TestCase):
         self.chrome.find_element(*self.FORM_AUTHENTICATION_LINK).click()
         self.chrome.implicitly_wait(7)
 
-
     def tearDown(self):
         self.chrome.quit()
 
@@ -44,38 +42,35 @@ class Login(unittest.TestCase):
     def test_url(self):
         actual = self.chrome.current_url
         expected = 'https://the-internet.herokuapp.com/login'
-        self.assertEqual(expected,actual, 'URL-ul nu este corect')
+        self.assertEqual(expected, actual, 'URL-ul nu este corect')
 
     # @unittest.skip
     # Test 2 - Verificare page title
     def test_page_title(self):
-        actual=self.chrome.title
-        expected='The Internet'
-        self.assertEqual(expected, actual,  f' Titlul paginii este {actual}, dar ar fi trebuit sa fie {expected}')
-
+        actual = self.chrome.title
+        expected = 'The Internet'
+        self.assertEqual(expected, actual, f' Titlul paginii este {actual}, dar ar fi trebuit sa fie {expected}')
 
     # @unittest.skip
     # Test 3 - Verificare element
     def test_element(self):
-        actual=self.chrome.find_element(*self.H2_ELEMENT).text
+        actual = self.chrome.find_element(*self.H2_ELEMENT).text
         print(f'Denumirea elementului este {actual}')
-        expected='Login Page'
+        expected = 'Login Page'
         self.assertEqual(actual, expected, f' Denumirea elementului este {actual}, dar ar fi trebuit sa fie {expected}')
-
 
     # @unittest.skip
     # Test 4 - Verificare Login button
     def test_login_displayed(self):
-        button=self.chrome.find_element(*self.LOGIN_BUTTON)
-        self.assertTrue(button.is_displayed(),'Butonul de LOGIN nu este vizibil')
+        button = self.chrome.find_element(*self.LOGIN_BUTTON)
+        self.assertTrue(button.is_displayed(), 'Butonul de LOGIN nu este vizibil')
 
     # @unittest.skip
     # Test 5 - Verificare href link
     def test_href_link(self):
-        actual_link=self.chrome.find_element(*self.HREF_LINK).get_attribute('href')
-        assert actual_link=='http://elementalselenium.com/', 'Link-ul este gresit'
+        actual_link = self.chrome.find_element(*self.HREF_LINK).get_attribute('href')
+        assert actual_link == 'http://elementalselenium.com/', 'Link-ul este gresit'
         print('Link-ul verificat este corect')
-
 
     # @ unittest.skip
     # Test 6 - Verificare eroare user/pass goale
@@ -91,7 +86,7 @@ class Login(unittest.TestCase):
         self.chrome.find_element(*self.PASSWORD).send_keys('SuperSecretPassword!')
         self.chrome.find_element(*self.LOGIN_BUTTON).click()
         actual = self.chrome.find_element(*self.ERROR_MESSAGE).text
-        expected='Your username is invalid!'
+        expected = 'Your username is invalid!'
         self.assertTrue(expected in actual, 'Error message text is incorrect')
 
     # @ unittest.skip
@@ -106,23 +101,21 @@ class Login(unittest.TestCase):
         except NoSuchElementException:
             print("The text is not visible on the page! It's ok")
 
-
     # @ unittest.skip
     # Test 9 - Verificare lista label
     def test_lista_label(self):
-        elem_lista=self.chrome.find_elements(*self.LABEL_LIST)
+        elem_lista = self.chrome.find_elements(*self.LABEL_LIST)
         i = 0
         is_username_text_correct = False
         is_password_text_correct = False
-        while i<len(elem_lista):
-            if elem_lista[i].text=='Username':
+        while i < len(elem_lista):
+            if elem_lista[i].text == 'Username':
                 is_username_text_correct = True
-            elif elem_lista[i].text=='Password':
+            elif elem_lista[i].text == 'Password':
                 is_password_text_correct = True
             i += 1
         assert is_username_text_correct == True
         assert is_password_text_correct == True
-
 
     # @ unittest.skip
     # Test 10 - Verificare elemente secure si flash succes
@@ -130,9 +123,9 @@ class Login(unittest.TestCase):
         self.chrome.find_element(*self.USER_NAME).send_keys('tomsmith')
         self.chrome.find_element(*self.PASSWORD).send_keys('SuperSecretPassword!')
         self.chrome.find_element(*self.LOGIN_BUTTON).click()
-        url_dupa_logare=self.chrome.current_url
-        self.assertTrue("secure" in url_dupa_logare,'Noul url nu contine secure')
-        WebDriverWait(self.chrome,10).until(EC.presence_of_element_located(self.SUCCESS_MESSAGE))
+        url_dupa_logare = self.chrome.current_url
+        self.assertTrue("secure" in url_dupa_logare, 'Noul url nu contine secure')
+        WebDriverWait(self.chrome, 10).until(EC.presence_of_element_located(self.SUCCESS_MESSAGE))
         assert self.chrome.find_element(*self.SUCCESS_MESSAGE).is_displayed() == True
 
     # @ unittest.skip
@@ -142,7 +135,7 @@ class Login(unittest.TestCase):
         self.chrome.find_element(*self.PASSWORD).send_keys('SuperSecretPassword!')
         self.chrome.find_element(*self.LOGIN_BUTTON).click()
         self.chrome.find_element(*self.LOGOUT_BUTTON).click()
-        WebDriverWait(self.chrome,10).until(EC.url_contains('/login'))
-        url_dupa_delogare=self.chrome.current_url
-        expected_url='https://the-internet.herokuapp.com/login'
+        WebDriverWait(self.chrome, 10).until(EC.url_contains('/login'))
+        url_dupa_delogare = self.chrome.current_url
+        expected_url = 'https://the-internet.herokuapp.com/login'
         assert url_dupa_delogare == expected_url, f'Invalid url: {url_dupa_delogare} este diferit de {expected_url}'
