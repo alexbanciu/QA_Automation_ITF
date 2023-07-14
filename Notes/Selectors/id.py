@@ -11,4 +11,4 @@ chrome.find_element(By.ID, "first-name").send_keys("Marian")
 chrome.find_element(By.ID, "last-name").send_keys("Gheorghisor")
 time.sleep(3)
 chrome.quit() # inchide toata instanta browserului
-# chrome.close() -> inchide un singur tab (cel activ) din instanta de browser
+# chrome.close() -> inchide un singur tab (cel activ) din instanta de browser.py
